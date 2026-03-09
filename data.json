@@ -1,14 +1,15 @@
 {
     "empresa": {
-                "respostas": {
-            "nome": "Somos a empresa de software.",
-        "descricao": "Atuamos 24horas nos 7 dias da semana.",
-        
+        "nome": "Nome da Empresa",
+        "descricao": "Descrição breve da empresa.",
+        "respostas": {
             "horário": "O horário de atendimento é das 9h às 17h, de segunda a sexta-feira.",
             "produtos": "Oferecemos uma variedade de produtos, incluindo: A, B, C.",
             "compra": "Você pode efetuar uma compra visitando nosso site ou entrando em contato pelo telefone.",
             "contato": "Nosso email é contato@empresa.com e o telefone é +55 11 99999-9999.",
             "endereço": "Estamos localizados na Rua Exemplo, 123, Cidade, Estado, CEP."
+            "nome": "AppX, empresa de desenvolvimento de software."
+    
         }
     }
 }
