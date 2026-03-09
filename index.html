@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -81,15 +81,7 @@
             .then(response => response.json())
             .then(jsonData => {
                 data = jsonData;
-                showWelcomeMessage();
             });
-
-        function showWelcomeMessage() {
-            const welcomeMessage = `Olá! Nós somos da ${data.empresa.nome}. Como podemos ajudar você hoje?`;
-            const chatbox = document.getElementById("chatbox");
-            chatbox.innerHTML += `<div class="message bot">${welcomeMessage}</div>`;
-            chatbox.scrollTop = chatbox.scrollHeight; // Scroll para baixo
-        }
 
         function processInput() {
             const userInput = document.getElementById("userInput").value;
