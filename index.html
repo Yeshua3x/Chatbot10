@@ -7,40 +7,71 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #chatContainer {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            overflow: hidden;
         }
         #chatbox {
-            border: 1px solid #ccc;
-            padding: 10px;
-            background: #fff;
-            width: 300px;
+            border: none;
+            padding: 15px;
+            background: #f9f9f9;
             height: 400px;
             overflow-y: scroll;
-            margin-bottom: 10px;
         }
         #userInput {
-            width: 300px;
+            width: calc(100% - 90px);
             padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #00796b;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #004d40;
         }
         .message {
             margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
         .user {
-            color: blue;
+            background: #bbdefb;
             text-align: right;
         }
         .bot {
-            color: green;
+            background: #c8e6c9;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
-    <h1>Chatbot da Empresa</h1>
-    <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Digite sua pergunta..." />
-    <button onclick="processInput()">Enviar</button>
+    <div id="chatContainer">
+        <h1 style="text-align: center;">Chatbot da Empresa</h1>
+        <div id="chatbox"></div>
+        <div style="display: flex; padding: 10px;">
+            <input type="text" id="userInput" placeholder="Digite sua pergunta..." />
+            <button onclick="processInput()">Enviar</button>
+        </div>
+    </div>
 
     <script>
         let data;
@@ -66,9 +97,9 @@
         function handleUserInput(input) {
             const normalizedInput = input.toLowerCase();
 
-            for (const faq of data.empresa.perguntas_frequentes) {
-                if (normalizedInput.includes(faq.pergunta.toLowerCase())) {
-                    return faq.resposta;
+            for (const keyword of Object.keys(data.empresa.respostas)) {
+                if (normalizedInput.includes(keyword)) {
+                    return data.empresa.respostas[keyword];
                 }
             }
             return "Desculpe, não entendi a sua pergunta. Tente novamente!";
