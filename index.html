@@ -106,6 +106,7 @@
             const normalizedInput = input.toLowerCase();
 
             for (const keyword of Object.keys(data.empresa.respostas)) {
+                // Se a palavra-chave estiver contida na entrada do usuário
                 if (normalizedInput.includes(keyword)) {
                     return data.empresa.respostas[keyword];
                 }
@@ -113,6 +114,5 @@
             return "Desculpe, não entendi a sua pergunta. Tente novamente!";
         }
     </script>
-
 </body>
 </html>
