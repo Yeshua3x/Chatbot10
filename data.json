@@ -1,8 +1,9 @@
 {
     "empresa": {
-        "nome": "Nome da Empresa",
-        "descricao": "Descrição breve da empresa.",
-        "respostas": {
+                "respostas": {
+            "nome": "Somos a empresa de software.",
+        "descricao": "Atuamos 24horas nos 7 dias da semana.",
+        
             "horário": "O horário de atendimento é das 9h às 17h, de segunda a sexta-feira.",
             "produtos": "Oferecemos uma variedade de produtos, incluindo: A, B, C.",
             "compra": "Você pode efetuar uma compra visitando nosso site ou entrando em contato pelo telefone.",
