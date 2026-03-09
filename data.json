@@ -1,0 +1,28 @@
+{
+    "empresa": {
+        "nome": "Nome da Empresa",
+        "descricao": "Descrição breve da empresa.",
+        "perguntas_frequentes": [
+            {
+                "pergunta": "Qual é o horário de atendimento?",
+                "resposta": "O horário de atendimento é das 9h às 17h, de segunda a sexta-feira."
+            },
+            {
+                "pergunta": "Quais produtos vocês oferecem?",
+                "resposta": "Oferecemos uma variedade de produtos, incluindo: a, b, c."
+            },
+            {
+                "pergunta": "Como posso efetuar uma compra?",
+                "resposta": "Você pode efetuar uma compra visitando nosso site ou entrando em contato pelo telefone."
+            }
+        ],
+        "contato": {
+            "email": "contato@empresa.com",
+            "telefone": "+55 11 99999-9999"
+        },
+        "localizacao": {
+            "endereco": "Rua Exemplo, 123, Cidade, Estado, CEP",
+            "mapa": "link_do_mapa"
+        }
+    }
+}
