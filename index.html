@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot da Empresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        #chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #fff;
+            width: 300px;
+            height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        #userInput {
+            width: 300px;
+            padding: 10px;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .user {
+            color: blue;
+            text-align: right;
+        }
+        .bot {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chatbot da Empresa</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Digite sua pergunta..." />
+    <button onclick="processInput()">Enviar</button>
+
+    <script>
+        let data;
+
+        // Carrega o JSON do arquivo data.json
+        fetch('data.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                data = jsonData;
+            });
+
+        function processInput() {
+            const userInput = document.getElementById("userInput").value;
+            const chatbox = document.getElementById("chatbox");
+            chatbox.innerHTML += `<div class="message user">${userInput}</div>`;
+            document.getElementById("userInput").value = "";
+
+            const response = handleUserInput(userInput);
+            chatbox.innerHTML += `<div class="message bot">${response}</div>`;
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll para baixo
+        }
+
+        function handleUserInput(input) {
+            const normalizedInput = input.toLowerCase();
+
+            for (const faq of data.empresa.perguntas_frequentes) {
+                if (normalizedInput.includes(faq.pergunta.toLowerCase())) {
+                    return faq.resposta;
+                }
+            }
+            return "Desculpe, não entendi a sua pergunta. Tente novamente!";
+        }
+    </script>
+
+</body>
+</html>
